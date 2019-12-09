@@ -2,76 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849f0ad2-7b24-4b58-93af-d82b889f0304" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/JavaStudy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/10/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/11/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/12/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/13/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/14/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/15/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/16/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/17/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/18/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/19/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/2/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/20/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/21/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/22/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/23/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/24/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/25/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/26/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/27/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/28/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/29/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/3/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/30/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/31/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/32/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/33/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/34/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/35/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/36/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/37/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/38/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/39/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/4/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/40/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/41/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/42/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/43/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/44/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/45/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/46/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/47/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/48/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/49/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/5/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/50/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/51/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/52/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/53/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/54/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/55/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/56/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/57/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/58/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/59/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/6/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/60/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/7/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/8/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week_01/9/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,69 +14,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week_01/1/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="772">
-                <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week_01/4/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week_01/5/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week_01/6/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week_01/7/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -212,6 +81,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -227,6 +97,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\algorithm\JavaStudy" />
       <recent name="D:\algorithm\JavaStudy\week_01" />
       <recent name="D:\algorithm\JavaStudy\week_01\1" />
     </key>
@@ -254,12 +125,20 @@
       <option name="presentableId" value="Default" />
       <updated>1575821822704</updated>
       <workItem from="1575821824264" duration="165000" />
-      <workItem from="1575875016778" duration="2451000" />
+      <workItem from="1575875016778" duration="3254000" />
     </task>
+    <task id="LOCAL-00001" summary="目录创建">
+      <created>1575879326719</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575879326719</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2616000" />
+    <option name="totallyTimeSpent" value="3419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -299,6 +178,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="目录创建" />
+    <option name="LAST_COMMIT_MESSAGE" value="目录创建" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/week_01/2/README.md">
@@ -376,7 +259,15 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
-          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week_02/1/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
