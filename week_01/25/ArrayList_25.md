@@ -389,3 +389,5 @@ public class ArrayList<E> extends AbstractList<E>
 （5）ArrayList支持求并集，调用addAll(Collection c)  
 （6）ArrayList支持求交集，调用retainAll(Collection c)  
 （7）ArrayList支持求单向差集，调用removeAll(Collection c)  
+
+一个比较重要的点写在末尾：不难发现ArrayList如果一开始通过默认构造函数创建，那么过多的添加操作就会导致过多的扩容操作，并且每一次扩容操作都会进行一次arraycopy，这个操作是非常耗时的，因此为了尽可能的避免扩容带来的性能开销，可以在事先就指定好ArrayList的容量进行创建。
