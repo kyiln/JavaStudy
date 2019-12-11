@@ -410,7 +410,7 @@ public class ArrayList<E> extends AbstractList<E>
 使用附带参数的toArray(T[] array)方法，其目的是为了确保了转换后的数组类型，直接使用toArray()的无参方法返回值只能是Object类型，且强制转换其他类型的数组会出现ClassCastException错误。下面是测试代码：
 
 ```java
-	String[] str1 = new String[2];
+    String[] str1 = new String[2];
     String[] str2 = new String[2];
     List<String> temp = new ArrayList<>();
     temp.add("w");
