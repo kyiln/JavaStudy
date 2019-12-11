@@ -11,7 +11,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ### 属性
 ```java
-/**
+    /**
      * 默认初始容量为16
      * 容量必须指定为2的n次方, 目的是为了使hash函数能够更加有效的获取散列值
      * index = hashCode & (capacity - 1)
@@ -79,7 +79,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ### Node内部类
 ```java
-	/**
+   /**
      * 典型的单链表节点
      */
     static class Node<K,V> implements Map.Entry<K,V> {
@@ -93,7 +93,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ### TreeNode内部类
 ```java
-	static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
+    static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
     TreeNode<K,V> parent;  // red-black tree links
     TreeNode<K,V> left;
     TreeNode<K,V> right;
@@ -103,7 +103,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ### 构造方法
 ```java
-	/**
+    /**
      * 1. 指定初始容量和负载因子的构造方法
      */
     public HashMap(int initialCapacity, float loadFactor) {
@@ -122,7 +122,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         this.threshold = tableSizeFor(initialCapacity);
     }
 
-	/**
+    /**
      * 将Capacity转换为往上取最近的2的n次方
      * 该算法的思想就是将Capacity的有效二进制位转换为全1, 然后加1取到二进制位
      * 例如(14)2 = 1100, 1100低位全部转换为1, 1100 -> 1111, 1111 + 1 = 100000
@@ -161,21 +161,20 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 （5）如果下标位置桶不为空：  
 　　（5.1）观察桶上第一个节点的key与newNode.key是否相同，若相同保存该节点，跳转到步骤（6）  
 　　（5.2）若不相同，且第一个节点为TreeNode，则按照红黑树的方式进行添加  
-　　（5.3）若不相同，且第一个节点不为红黑树，则遍历链表寻找具有相同key的节点，若找到了保存该节点，跳转到步骤（6）；若未找到则在末尾添加newNode  
+　　（5.3）若不相同，且第一个节点不为红黑树，则遍历链表寻找具有相同key的节点，若找到了保存该节点，跳转到步骤（6），若未找到则在末尾添加newNode  
 　　（5.4）观察添加newNode后是否需要树化  
 （6）将保存的具有相同key的节点value进行更新，并返回oldValue  
 （7）观察是否需要扩容，若需要调用resize()  
 （8）因为寻找到相同key的结果会在步骤（6）中return，这里只可能存在未找到相同key的情况，return null  
 
 ```java
-	public V put(K key, V value) {
-		//调用hash方法计算key的hash值, 然后进行putVal
-		//如果替换了相同key节点的value, 那么return oldValue, else return null
-		
+    public V put(K key, V value) {
+	//调用hash方法计算key的hash值, 然后进行putVal
+	//如果替换了相同key节点的value, 那么return oldValue, else return null
         return putVal(hash(key), key, value, false, true);
     }
 	
-	static final int hash(Object key) {
+    static final int hash(Object key) {
         int h;
     	//if key = null, return 0, else return (key的32位hashCode异或key的高16位)
     	//目的时为了让hash更加分散
@@ -261,7 +260,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 （4）创建新容量的桶  
 （5）搬迁元素  
 ```java
-	/**
+    /**
      * 对位桶数组的扩容方法
      * 这里是创建了一个新的位桶数组, 并将老的位桶数组搬家到新数组中
      */
@@ -377,7 +376,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 （4）如果第一个节点不是，且第一个节点是TreeNode，那么通过红黑树的方式查找  
 （5）如果第一个节点不是，且第一个节点是链表，那么遍历链表查找  
 ```java
-	public V get(Object key) {
+    public V get(Object key) {
         Node<K,V> e;
         //根据传入的key计算其hash, 并下到位桶数组中寻找对应桶的位置
         return (e = getNode(hash(key), key)) == null ? null : e.value;
@@ -422,7 +421,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 （7）若不是TreeNode，则按照链表的方式删除  
 
 ```java
-	public V remove(Object key) {
+    public V remove(Object key) {
         Node<K,V> e;
         //计算出key的hash值, 然后下到removeNode方法进行删除
         return (e = removeNode(hash(key), key, null, false, true)) == null ?
