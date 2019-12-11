@@ -78,6 +78,14 @@ ArrayList源码解析
         return minCapacity;
     }
 
+    //在指定位置插入数据
+    public void add(int index, E element) {
+        rangeCheckForAdd(index);
+        ensureCapacityInternal(size + 1);  // Increments modCount!!     //跟上面的方法一样，判断是否要扩容，如果要扩容，扩容后返回新数组
+        System.arraycopy(elementData, index, elementData, index + 1, size - index);  //在指定位置插入元素后，把指定位置后的元素全部向后移一位
+        elementData[index] = element;
+        size++;
+    }
 
 
 
