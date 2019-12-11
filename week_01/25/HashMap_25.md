@@ -5,9 +5,9 @@ HashMap采用key-value的存储结构，每个唯一key对应一个唯一的valu
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable {
  ```
- （1）继承了AbstractMap，实现了Map接口，具备Map的所有功能
- （2）实现了Cloneable，可以被克隆
- （3）实现了Serializable，可以被序列化
+ （1）继承了AbstractMap，实现了Map接口，具备Map的所有功能  
+ （2）实现了Cloneable，可以被克隆  
+ （3）实现了Serializable，可以被序列化  
 
 ### 属性
 ```java
@@ -157,15 +157,15 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 （1）计算节点key的hash值  
 （2）如果是刚初始化的map，调用resize()初始化位桶数组  
 （3）hash&(n - 1)计算出newNode存放的下标值  
-（4）如果下标位置桶为空，那么直接放入newNode即可，跳转到步骤（7）
+（4）如果下标位置桶为空，那么直接放入newNode即可，跳转到步骤（7）  
 （5）如果下标位置桶不为空：  
-　　（5.1）观察桶上第一个节点的key与newNode.key是否相同，若相同保存该节点，跳转到步骤（6）
-　　（5.2）若不相同，且第一个节点为TreeNode，则按照红黑树的方式进行添加
-　　（5.3）若不相同，且第一个节点不为红黑树，则遍历链表寻找具有相同key的节点，若找到了保存该节点，跳转到步骤（6）；若未找到则在末尾添加newNode
-　　（5.4）观察添加newNode后是否需要树化
-（6）将保存的具有相同key的节点value进行更新，并返回oldValue
-（7）观察是否需要扩容，若需要调用resize()
-（8）因为寻找到相同key的结果会在步骤（6）中return，这里只可能存在未找到相同key的情况，return null
+　　（5.1）观察桶上第一个节点的key与newNode.key是否相同，若相同保存该节点，跳转到步骤（6）  
+　　（5.2）若不相同，且第一个节点为TreeNode，则按照红黑树的方式进行添加  
+　　（5.3）若不相同，且第一个节点不为红黑树，则遍历链表寻找具有相同key的节点，若找到了保存该节点，跳转到步骤（6）；若未找到则在末尾添加newNode  
+　　（5.4）观察添加newNode后是否需要树化  
+（6）将保存的具有相同key的节点value进行更新，并返回oldValue  
+（7）观察是否需要扩容，若需要调用resize()  
+（8）因为寻找到相同key的结果会在步骤（6）中return，这里只可能存在未找到相同key的情况，return null  
 
 ```java
 	public V put(K key, V value) {
@@ -371,11 +371,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 
 ### get(Object key) 获取map中key对应的value
-（1）计算key的hash值
-（2）通过计算找到key所在的桶数组下标
-（3）如果第一个节点就是要查找的key节点，return
-（4）如果第一个节点不是，且第一个节点是TreeNode，那么通过红黑树的方式查找
-（5）如果第一个节点不是，且第一个节点是链表，那么遍历链表查找
+（1）计算key的hash值  
+（2）通过计算找到key所在的桶数组下标  
+（3）如果第一个节点就是要查找的key节点，return  
+（4）如果第一个节点不是，且第一个节点是TreeNode，那么通过红黑树的方式查找  
+（5）如果第一个节点不是，且第一个节点是链表，那么遍历链表查找  
 ```java
 	public V get(Object key) {
         Node<K,V> e;
@@ -413,13 +413,13 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
 
 ### remove(Object key) 根据传入key删除节点
-（1）计算key的hash值
-（2）计算下标，看下标对应的桶上第一个节点是否是我们要删除的
-（3）若是，保存该结点
-（4）若不是，且头结点是TreeNode，按照红黑树的方式遍历获取到该节点
-（5）若不是，且头结点是链表，则遍历链表获取到该结点
-（6）观察保存的结点是否是TreeNode，如果是则按照红黑树的方式删除
-（7）若不是TreeNode，则按照链表的方式删除
+（1）计算key的hash值  
+（2）计算下标，看下标对应的桶上第一个节点是否是我们要删除的  
+（3）若是，保存该结点  
+（4）若不是，且头结点是TreeNode，按照红黑树的方式遍历获取到该节点  
+（5）若不是，且头结点是链表，则遍历链表获取到该结点  
+（6）观察保存的结点是否是TreeNode，如果是则按照红黑树的方式删除  
+（7）若不是TreeNode，则按照链表的方式删除  
 
 ```java
 	public V remove(Object key) {
