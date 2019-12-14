@@ -6,19 +6,19 @@
     >1.8以后  数组+单向链表+红黑树(提高查找效率)	数组+红黑树	    数组+单向链表
 
     主要参数：
-    * DEFAULT_INITIAL_CAPACITY（1 << 4 -> 初始容量大小）
-    * MAXIMUM_CAPACITY（1 << 30 -> 容量极限大小）
-    * DEFAULT_LOAD_FACTOR（负载因子默认大小）
-    * TREEIFY_THRESHOLD（节点数大于8时会转为红黑树存储）
-    * UNTREEIFY_THRESHOLD（节点数小于6时会转为单向链表存储）
-    * MIN_TREEIFY_CAPACITY（红黑树最小长度为64）
-    * Node<K, V>（实现Map.Entry<K,V> , 单向链表）
+    * DEFAULT_INITIAL_CAPACITY：1 << 4 -> 初始容量大小
+    * MAXIMUM_CAPACITY：1 << 30 -> 容量极限大小
+    * DEFAULT_LOAD_FACTOR：负载因子默认大小
+    * TREEIFY_THRESHOLD：节点数大于8时会转为红黑树存储
+    * UNTREEIFY_THRESHOLD：节点数小于6时会转为单向链表存储
+    * MIN_TREEIFY_CAPACITY：红黑树最小长度为64
+    * Node<K, V>：实现Map.Entry<K,V> , 单向链表
         Node是Map.Entry接口的实现类，存储数据的Node数组容量是2次幂，每个Node本质都是一个单向链表
-    * TreeNode<K,V>（extends LinkedHashMap.Entry<K,V> , 红黑树）    
-    * size（HashMap大小，代表HashMap保存的键值对的大小）
-    * modCount（被改变的次数）
-    * threshold（下一次HashMap扩容的大小->put时根据oldCap和newCap比较确定下一次扩容大小）
-    * loadFactor（存储负载因子的常量）
+    * TreeNode<K,V>：extends LinkedHashMap.Entry<K,V> , 红黑树）   
+    * size：HashMap大小，代表HashMap保存的键值对的大小
+    * modCount：被改变的次数
+    * threshold：下一次HashMap扩容的大小->put时根据oldCap和newCap比较确定下一次扩容大小
+    * loadFactor：存储负载因子的常量
     
     1、hash的计算:
     //将传入的参数key本身的hashCode与h无符号右移16位进行二进制异或运算得出一个新的hash值

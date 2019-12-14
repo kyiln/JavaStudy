@@ -1,3 +1,4 @@
+package com.dans.demo;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class LinkedListDemo {
         list.add(1);
         list.add(2);
         list.add(3);
+
+        list.remove(1);
 
         list.stream().forEach(i -> {
             System.out.println(i);

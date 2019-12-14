@@ -7,11 +7,11 @@
     * -->Serializable（可序列化）
 
     主要参数：
-    * DEFAULT_CAPACITY（默认初始化大小）
-    * EMPTY_ELEMENTDATA（指定list为空时使用的数组）
-    * DEFAULTCAPACITY_EMPTY_ELEMENTDATA（当使用默认无参构造器创建的空list数组，在扩容时会考虑使用默认的扩容方案DEFAULT_CAPACITY）
-    * elementData（存放元素的数组）
-    * size（数组大小）
+    * DEFAULT_CAPACITY：默认初始化大小
+    * EMPTY_ELEMENTDATA：指定list为空时使用的数组
+    * DEFAULTCAPACITY_EMPTY_ELEMENTDATA：当使用默认无参构造器创建的空list数组，在扩容时会考虑使用默认的扩容方案DEFAULT_CAPACITY
+    * elementData：存放元素的数组
+    * size：数组大小
 
     madCount(全局变量):
     * madCount交由迭代器（Iterator）和列表迭代器（ListIterator）使用，
