@@ -11,15 +11,6 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>
 ### 属性
 ```java
     /**
-     * HashMap.Node subclass for normal LinkedHashMap entries.
-     */
-    static class Entry<K,V> extends HashMap.Node<K,V> {
-        Entry<K,V> before, after;
-        Entry(int hash, K key, V value, Node<K,V> next) {
-            super(hash, key, value, next);
-        }
-    }
-    /**
      * 双向链表的头节点, 旧数据存在头节点
      */
     transient LinkedHashMap.Entry<K,V> head;
@@ -119,8 +110,8 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>
         }
     }
 
-	//是否移除最老的元素, 默认为false
-	protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
+    //是否移除最老的元素, 默认为false
+    protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
         return false;
     }
 ```
@@ -128,8 +119,8 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>
 ### afterNodeAcces(Node e)
 指定LinkedHashMap在完成访问操作之后还需做什么，这个方法在HashMap中调用put()方法时，更新相同key节点的value时有调用，但实现也为空。在LinkedHashMap中调用put()、get()方法时会用到，若指定为true，则调用这个方法把最近访问过的节点移动到双端链表末尾。  
 
-（1）若指定accessOrder = true，且访问的节点不是末尾节点
-（2）双向链表中移除该结点并再次添加到链表末尾
+（1）若指定accessOrder = true，且访问的节点不是末尾节点  
+（2）双向链表中移除该结点并再次添加到链表末尾  
 ```java
     void afterNodeAccess(Node<K,V> e) { // move node to last
         LinkedHashMap.Entry<K,V> last;
@@ -164,7 +155,7 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>
 ### afterNodeRemoval(Node e)  
 在HashMap中将该节点删除之后，在双端链表也将该节点进行删除
 ```java
-void afterNodeRemoval(Node<K,V> e) { // unlink
+   void afterNodeRemoval(Node<K,V> e) { // unlink
         LinkedHashMap.Entry<K,V> p =
             (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
         p.before = p.after = null;
@@ -201,9 +192,10 @@ void afterNodeRemoval(Node<K,V> e) { // unlink
 （2）LinkedHashMap内部维护了一个双端链表存储所有的元素  
 （3）若accessOrder = false，则按插入元素的顺序进行排序  
 （4）若accessOrder = true，则按访问元素的顺序进行排序  
-（5）默认的LinkedHashMap并不会移除旧元素，如果需要移除达到某个条件的最久未使用的旧元素，则需要重写removeEldestEntry()方法设置淘汰策略 
+（5）默认的LinkedHashMap并不会移除旧元素，如果需要移除达到某个条件的最久未使用的旧元素，则需要重写removeEldestEntry()方法设置淘汰策略   
 
 
+下面是LRU基于LinkedHashMap和手写HashMap+双端链表的两种实现：
 ### LRU基于LinkedHashMap的实现
 ```java
 public class LRUCache extends LinkedHashMap<Integer, Integer> {
