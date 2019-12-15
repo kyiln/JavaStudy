@@ -1,0 +1,102 @@
+##HashMap
+ 
+ ##接口
+    1.Map
+    2.Cloneable --可拷贝
+    3.Serializable-可序列化
+ ##属性
+    //默认长度16， 必须是2的幂
+      static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
+     
+      static final int MAXIMUM_CAPACITY = 1 << 30;
+    //扩容因子(数据量到75%，则扩容一次)  
+      static final float DEFAULT_LOAD_FACTOR = 0.75f;
+    //变成树的一个阀值  
+     static final int TREEIFY_THRESHOLD = 8;
+    //取消树的一个阀值 
+     static final int UNTREEIFY_THRESHOLD = 6;
+     
+     static final int MIN_TREEIFY_CAPACITY = 64;
+  ##构造函数
+    1.public HashMap() {
+            this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+        }
+      则当前Map 长度16,扩容因子75%
+    2.HashMap(int  i){
+        HashMap(int initialCapacity, float loadFactor)
+    }
+
+    3.public HashMap(Map<? extends K, ? extends V> m) {
+             this.loadFactor = DEFAULT_LOAD_FACTOR;
+             putMapEntries(m, false);
+        }
+        
+        
+    4.方法
+     /**
+         * Implements Map.put and related methods.
+         *
+         * @param hash hash for key
+         * @param key the key
+         * @param value the value to put
+         * @param onlyIfAbsent if true, don't change existing value
+         * @param evict if false, the table is in creation mode.
+         * @return previous value, or null if none
+         */
+        final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                       boolean evict) {
+            Node<K,V>[] tab;
+             Node<K,V> p; 
+             int n, i;
+             //如果表是空的则从表新计算
+            if ((tab = table) == null || (n = tab.length) == 0)
+             //获取表新计算的长度
+                n = (tab = resize()).length;
+                //没有Hahs碰撞，直接在该角标插入新值
+            if ((p = tab[i = (n - 1) & hash]) == null)
+            //新增一个桶到指定表中
+                tab[i] = newNode(hash, key, value, null);
+            //有哈希碰撞
+            else {
+                Node<K,V> e; K k;
+                //如果在原来的找到了一个相同的桶，则把之前的桶赋值过来
+                if (p.hash == hash &&
+                    ((k = p.key) == key || (key != null && key.equals(k))))
+                    e = p;
+                 //看下 P 是不是是个树，拷贝一个树
+                else if (p instanceof TreeNode)
+                    e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+                 //如果不是一个树
+                else {
+                    for (int binCount = 0; ; ++binCount) {
+                    //该节点后面没有值，当前Hash只有这一个值
+                        if ((e = p.next) == null) {
+                        //新建一个节点赋值给表当前的位置
+                            p.next = newNode(hash, key, value, null);
+                            if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                                treeifyBin(tab, hash);
+                            break;
+                        }
+                        //如果是同一个值，则不对此节点做操作
+                        if (e.hash == hash &&
+                            ((k = e.key) == key || (key != null && key.equals(k))))
+                            break;
+                        p = e;
+                    }
+                }
+                if (e != null) { // existing mapping for key
+                    V oldValue = e.value;
+                    if (!onlyIfAbsent || oldValue == null)
+                        e.value = value;
+                    afterNodeAccess(e);
+                    return oldValue;
+                }
+            }
+            //记录该Map修改的次数
+            ++modCount;
+            if (++size > threshold)
+                resize();
+            afterNodeInsertion(evict);
+            return null;
+        }
+  ##HashMap源码还需要看，请各位大佬，指导一下，第一次看，懵逼中。。。。。。。。。。。。。。。
