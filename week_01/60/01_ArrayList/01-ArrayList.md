@@ -471,7 +471,7 @@ public ArrayList(Collection<? extends E> c) {
 ```
 
 - 深拷贝
-  - 使用Collection的copy方法；
+  - 使用`Collection.copy()`；
 
 
 
