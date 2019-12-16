@@ -1,0 +1,71 @@
+1.
+初始化大小为10
+	/**
+     * Default initial capacity.
+     */
+    private static final int DEFAULT_CAPACITY = 10;
+	
+2.构造方法：
+	①:无参默认创建一个空集合
+	/**
+     * Constructs an empty list with an initial capacity of ten.
+     */
+    public ArrayList() {
+        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+    }
+	②:有参数的情况下 根据参数大小初始化集合
+	public ArrayList(int initialCapacity) {
+        if (initialCapacity > 0) {
+            this.elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            this.elementData = EMPTY_ELEMENTDATA;
+        } else {
+            throw new IllegalArgumentException("Illegal Capacity: "+
+                                               initialCapacity);
+        }
+    }
+	③:也可以直接在构造方法中传一个集合
+	public ArrayList(Collection<? extends E> c) {
+        elementData = c.toArray();
+        if ((size = elementData.length) != 0) {
+            // c.toArray might (incorrectly) not return Object[] (see 6260652)
+            if (elementData.getClass() != Object[].class)
+                elementData = Arrays.copyOf(elementData, size, Object[].class);
+        } else {
+            // replace with empty array.
+            this.elementData = EMPTY_ELEMENTDATA;
+        }
+    }
+	
+3.集合最大容量 int类型最大值减去本身储存需要8的大小
+	/**
+     * The maximum size of array to allocate.
+     * Some VMs reserve some header words in an array.
+     * Attempts to allocate larger arrays may result in
+     * OutOfMemoryError: Requested array size exceeds VM limit
+     */
+    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;	
+	
+4.add时注意ArrayList为非线程安全的集合，多线程访问时需要注意并发修改异常(modCount不一致导致)。
+		解决方案:CopyOnWriteArrayList 写时复制、读写分离
+		
+5. /**
+     * Removes all of the elements from this list.  The list will
+     * be empty after this call returns.
+     */
+    public void clear() {
+        modCount++;
+
+        // clear to let GC do its work
+        for (int i = 0; i < size; i++)
+            elementData[i] = null;
+
+        size = 0;
+    }
+		循环遍历，置空每一位
+		
+		
+其他为常见方法以及不常用方法。		
+
+特点：ArrayList          对比                   LinkedList
+底层为数组结构，查询快，增上慢              底层为链表结构，查询慢，增删快
