@@ -1,0 +1,126 @@
+1.底层为链表+数组+红黑树
+为何用红黑树而不用其他结构？  红黑树的查询及增删效率介于链表及二叉搜索树之间，综合考虑用红黑树。
+
+2.初始化大小 16
+/**
+     * The default initial capacity - MUST be a power of two.
+     */
+    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
+	
+3.最大容量
+static final int MAXIMUM_CAPACITY = 1 << 30;	
+3.扩容因子
+static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+4./**
+     * The bin count threshold for using a tree rather than list for a
+     * bin.  Bins are converted to trees when adding an element to a
+     * bin with at least this many nodes. The value must be greater
+     * than 2 and should be at least 8 to mesh with assumptions in
+     * tree removal about conversion back to plain bins upon
+     * shrinkage.
+     */
+    static final int TREEIFY_THRESHOLD = 8;
+
+    /**
+     * The bin count threshold for untreeifying a (split) bin during a
+     * resize operation. Should be less than TREEIFY_THRESHOLD, and at
+     * most 6 to mesh with shrinkage detection under removal.
+     */
+    static final int UNTREEIFY_THRESHOLD = 6;
+	
+当容量大于8时底层为数组加红黑树结构，小于6时又会转为数组加链表结构	
+5.hash运算
+static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+	
+6.四个构造方法
+	①:public HashMap(int initialCapacity, float loadFactor) {
+        if (initialCapacity < 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " +
+                                               initialCapacity);
+        if (initialCapacity > MAXIMUM_CAPACITY)
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor <= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException("Illegal load factor: " +
+                                               loadFactor);
+        this.loadFactor = loadFactor;
+        this.threshold = tableSizeFor(initialCapacity);
+    }
+	②：
+    
+    public HashMap(int initialCapacity) {
+        this(initialCapacity, DEFAULT_LOAD_FACTOR);
+    }
+	③：
+    
+    public HashMap() {
+        this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+    }
+	④：
+    
+    public HashMap(Map<? extends K, ? extends V> m) {
+        this.loadFactor = DEFAULT_LOAD_FACTOR;
+        putMapEntries(m, false);
+    }	
+	
+7.put()方法 
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node<K,V> e; K k;
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }	
+	
+8.清除元素：循环置空
+public void clear() {
+        Node<K,V>[] tab;
+        modCount++;
+        if ((tab = table) != null && size > 0) {
+            size = 0;
+            for (int i = 0; i < tab.length; ++i)
+                tab[i] = null;
+        }
+    }	
+9.非线程安全，多线程操作可能出现并发修改异常
+解决方法：ConcurrentHashMap	
+
+其他get put 遍历等为常用方法
